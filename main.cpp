@@ -1,23 +1,26 @@
-#include <iostream>
 #include <raylib.h>
+
+#include <iostream>
 
 #include "go_lib.hpp"
 
-using namespace std;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 800;
+
 
 int main () {
 
-    const int SCREEN_WIDTH = 800;
-    const int SCREEN_HEIGHT = 600;
-
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "GO_Lib template");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "GO");
     SetTargetFPS(60);
 
+    go::Triangle trian(go::Node(200,200), go::Node(300,400), go::Node(100,400));
+
     while (WindowShouldClose() == false){
-   
-        
+
         BeginDrawing();
             ClearBackground(BLACK);
+            trian.draw();
+
         EndDrawing();
     }
 
